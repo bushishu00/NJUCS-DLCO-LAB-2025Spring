@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Mar  5 09:49:27 2025
+# Process ID: 29840
+# Current directory: D:/Code/Verilog/project_1_1_mux/project_1_1_mux.runs/impl_1
+# Command line: vivado.exe -log trans4to4.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source trans4to4.tcl -notrace
+# Log file: D:/Code/Verilog/project_1_1_mux/project_1_1_mux.runs/impl_1/trans4to4.vdi
+# Journal file: D:/Code/Verilog/project_1_1_mux/project_1_1_mux.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source trans4to4.tcl -notrace

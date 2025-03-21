@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Mar  5 11:08:23 2025
+# Process ID: 27376
+# Current directory: D:/Code/Verilog/project_1_3_Hamming/project_1_3_Hamming.runs/impl_1
+# Command line: vivado.exe -log hamming7check.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source hamming7check.tcl -notrace
+# Log file: D:/Code/Verilog/project_1_3_Hamming/project_1_3_Hamming.runs/impl_1/hamming7check.vdi
+# Journal file: D:/Code/Verilog/project_1_3_Hamming/project_1_3_Hamming.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source hamming7check.tcl -notrace

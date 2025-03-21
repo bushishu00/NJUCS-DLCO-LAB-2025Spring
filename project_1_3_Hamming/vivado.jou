@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Mar  5 20:59:08 2025
+# Process ID: 32592
+# Current directory: D:/Code/Verilog/project_1_3_Hamming
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent35576 D:\Code\Verilog\project_1_3_Hamming\project_1_3_Hamming.xpr
+# Log file: D:/Code/Verilog/project_1_3_Hamming/vivado.log
+# Journal file: D:/Code/Verilog/project_1_3_Hamming\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Code/Verilog/project_1_3_Hamming/project_1_3_Hamming.xpr

@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Desktop/DLCO/Experiments/Project3_ALU/lab3/Adder32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder32
+INFO: [VRFC 10-311] analyzing module CLA_16
+INFO: [VRFC 10-311] analyzing module CLA_group
+INFO: [VRFC 10-311] analyzing module CLU
+INFO: [VRFC 10-311] analyzing module FA_PG
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Desktop/DLCO/Experiments/Project3_ALU/lab3/Adder32_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder32_tb

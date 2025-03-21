@@ -1,0 +1,110 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Mar 17 23:09:03 2025
+| Host         : Lizimu-LAPTOP-R6 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file DigitalTimer_control_sets_placed.rpt
+| Design       : DigitalTimer
+| Device       : xc7a100t
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    32 |
+|    Minimum number of control sets                        |    32 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    52 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    32 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     9 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |    17 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              13 |           11 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              71 |           24 |
+| Yes          | No                    | No                     |             128 |           33 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              64 |           31 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------+---------------------------------------+------------------+------------------+----------------+--------------+
+|      Clock Signal     |             Enable Signal             | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------+---------------------------------------+------------------+------------------+----------------+--------------+
+|  div_u2/clk_out_reg_0 |                                       |                  |                1 |              3 |         3.00 |
+|  clk_IBUF_BUFG        |                                       |                  |                4 |              4 |         1.00 |
+|  clk_100Hz_BUFG       | counter_100_mms/cnt_out[7]_i_1_n_0    | RST_IBUF         |                2 |              4 |         2.00 |
+|  clk_100Hz_BUFG       | counter_100_mms/cnt_out[3]_i_1_n_0    | RST_IBUF         |                2 |              4 |         2.00 |
+|  clk_100Hz_BUFG       | counter_100_mms/E[0]                  | RST_IBUF         |                2 |              4 |         2.00 |
+|  clk_100Hz_BUFG       | counter_24_hour/cnt_out[7]_i_1__0_n_0 | RST_IBUF         |                3 |              4 |         1.33 |
+|  clk_100Hz_BUFG       | counter_60_min/cnt_out[7]_i_1__1_n_0  | RST_IBUF         |                3 |              4 |         1.33 |
+|  clk_100Hz_BUFG       | counter_60_min/E[0]                   | RST_IBUF         |                4 |              4 |         1.00 |
+|  clk_100Hz_BUFG       | counter_60_sec/cnt_out[7]_i_1__2_n_0  | RST_IBUF         |                2 |              4 |         2.00 |
+|  clk_100Hz_BUFG       | counter_60_sec/rco_reg_1[0]           | RST_IBUF         |                3 |              4 |         1.33 |
+|  clk_100Hz_BUFG       |                                       |                  |                6 |              6 |         1.00 |
+|  clk_100Hz_BUFG       | time_alarm_0[1][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_1[2][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_1[1][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_2[0][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_3[2][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_0[3][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_3[1][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_0[2][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_3[3][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_2[3][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_1[0][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_2[2][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_1[3][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_2[1][7]_i_1_n_0            |                  |                3 |              8 |         2.67 |
+|  clk_100Hz_BUFG       | time_alarm_3[0][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       | time_alarm_0[0][7]_i_1_n_0            |                  |                2 |              8 |         4.00 |
+|  clk_100Hz_BUFG       |                                       | RST_IBUF         |                8 |              9 |         1.12 |
+|  clk_100Hz_BUFG       | shine_u2/cnt                          | RST_IBUF         |                5 |             16 |         3.20 |
+|  clk_100Hz_BUFG       | shine_u1/cnt                          | RST_IBUF         |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG        |                                       | div_u1/clk_out   |                8 |             31 |         3.88 |
+|  clk_IBUF_BUFG        |                                       | div_u2/clk_out   |                8 |             31 |         3.88 |
++-----------------------+---------------------------------------+------------------+------------------+----------------+--------------+
+
+

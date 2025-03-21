@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Feb 26 11:29:03 2025
+# Process ID: 12180
+# Current directory: D:/Code/Verilog/project0_intro/project0_intro.runs/synth_1
+# Command line: vivado.exe -log My_xor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source My_xor.tcl
+# Log file: D:/Code/Verilog/project0_intro/project0_intro.runs/synth_1/My_xor.vds
+# Journal file: D:/Code/Verilog/project0_intro/project0_intro.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source My_xor.tcl -notrace

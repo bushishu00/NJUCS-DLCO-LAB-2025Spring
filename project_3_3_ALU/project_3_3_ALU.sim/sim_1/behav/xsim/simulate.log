@@ -1,0 +1,4 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+ALU32 test done. Errors: 0 .
+$stop called at time : 3 ms : File "E:/Desktop/DLCO/Experiments/Project3_ALU/lab3/ALU32_tb.v" Line 206

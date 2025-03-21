@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Desktop/DLCO/Experiments/Project1_combinatorial_logic/lab1/hamming7check.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hamming7check
+INFO: [VRFC 10-311] analyzing module dec7seg
+INFO: [VRFC 10-311] analyzing module hex2seg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Desktop/DLCO/Experiments/Project1_combinatorial_logic/lab1/hamming7check_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hamming7check_tb

@@ -1,0 +1,4 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+BarrelShifter32 test done, 0 errors.
+$stop called at time : 3100 us : File "E:/Desktop/DLCO/Experiments/Project3_ALU/lab3/barrelsft32_tb.v" Line 61
