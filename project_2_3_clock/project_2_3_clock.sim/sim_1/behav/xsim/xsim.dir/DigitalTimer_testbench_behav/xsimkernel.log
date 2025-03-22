@@ -1,7 +1,0 @@
-Running: xsim.dir/DigitalTimer_testbench_behav/xsimk.exe -simmode gui -wdb DigitalTimer_testbench_behav.wdb -simrunnum 0 -socket 52783
-Design successfully loaded
-Design Loading Memory Usage: 8036 KB (Peak: 8036 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 8768 KB (Peak: 8768 KB)
-Simulation CPU Usage: 30 ms

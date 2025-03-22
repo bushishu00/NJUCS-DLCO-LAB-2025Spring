@@ -1,5 +1,0 @@
-Vivado Simulator 2020.2
-Time resolution is 1 ps
-Test done,           0 errors
-
-$stop called at time : 970 ns : File "E:/Desktop/DLCO/Experiments/Project2_timing_logic/lab2/regfile32_tb.v" Line 58
