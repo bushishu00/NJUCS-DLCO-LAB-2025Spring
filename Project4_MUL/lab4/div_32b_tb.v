@@ -48,8 +48,8 @@ module div_32b_tb();
   task checkP;
     begin
       // Calculating expected quotient and remainder
-      temp_Q = x / y;
-      temp_R = x % y;
+      temp_Q = $signed(x) / $signed(y);
+      temp_R = $signed(x) % $signed(y);
 
       // Check if the results match
       if (out_valid && ((temp_Q != q) || (temp_R != r))) begin
@@ -74,7 +74,7 @@ module div_32b_tb();
       rst = 1'b0;
       #2;
       rst = 1'b1;  // Reset after 2 ns
-      x = 5; y = 2;  // Random values for X and Y
+      x = $random; y = $random;  // Random values for X and Y
       // x = 0; y = 1;  // Uncomment for specific test case
 
       #2;

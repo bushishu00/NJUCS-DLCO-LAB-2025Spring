@@ -135,9 +135,9 @@ module rv32m_tb(   );
     errors = 0;
            Rs1 = $random(SEED);                        // Set pattern based on seed parameter
    for (i=0; i<10000; i=i+1) begin                     //计算10000次
-        Rst = 1'b0;    #2   Rst = 1'b1;               //复位信号有效
+        Rst = 1'b1;    #2   Rst = 1'b0;               //复位信号有效
           Rs1 = $random; Rs2= $random(i);             //初始化数据
-     	#2 	Rst = 1'b0;	 In_valid=1'b1;               //数据就绪         
+     	#2 	Rst = 1'b1;	 In_valid=1'b1;               //数据就绪         
 	    #5  In_valid=1'b0;
              
           Funct3 = Mul;  #150 ; checkrv32m;     
@@ -151,7 +151,6 @@ module rv32m_tb(   );
           Funct3 = Remu;  #150 ; checkrv32m;     
     end
     $display("RV32M test done. Errors: %0d .", errors);
-    $stop(1);
   end
 
 endmodule

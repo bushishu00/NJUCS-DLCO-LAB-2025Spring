@@ -31,87 +31,77 @@ module div_32b(
     input [31:0] Y,           //除数
     input in_valid          //输入为1时，表示数据就绪，开始除法运算
 );
-    reg [5:0] cnt_r;
-    reg [63:0] div_r;//高32位补0，低32位为被除数
-    reg [32:0] Q_r;//商寄存器
-    reg out_valid_r;
-    wire [31:0] diff_res;
-    wire sub_flag;
-    wire sign_x;
-    wire sign_y;
-    wire sign_r;
-    wire cout;
-
-    //计数器，32周期完成
-    always @(posedge clk or posedge rst) begin
+    reg [5:0] cnt;
+    reg out_valid_rem;//r代表余数完成
+    reg out_valid_quo;//q代表商完成
+    always @(posedge clk) begin
         if (rst) begin
-            cnt_r <= 0;
-            out_valid_r <= 0;
+            cnt <= 0;
+            out_valid_rem <= 0;
         end
         else if (in_valid) begin
-            cnt_r <= 32;
-            out_valid_r <= 0;
+            cnt <= 32;
+            out_valid_rem <= 0;
         end
-        else if (cnt_r != 0) begin
-            cnt_r <= cnt_r - 1;
+        else if (cnt != 0) begin
+            cnt <= cnt - 1;
         end
-        else if (cnt_r == 0) begin
-            out_valid_r <= 1;
+        else begin
+            out_valid_rem <= 1;
+        end
+    end
+    //商比余数慢一拍
+    always @(posedge clk) begin
+        if (rst) begin
+            out_valid_quo <= 0;
+        end
+        else if (in_valid) begin
+            out_valid_quo <= 0;
+        end
+        else begin
+            out_valid_quo <= out_valid_rem;
         end
     end
 
-    /*assign sign_x = X[31];
+    reg [64:0] div_r;//高32位补0，低32位为被除数
+    reg [31:0] quote_r;
+    wire [31:0] diff_res;
+    wire [31:0] y_in;
+    wire sign_x, sign_y, sign_r;
+
+    assign sign_x = X[31];
     assign sign_y = Y[31];
-    assign sign_r = div_r[63];
-    assign sub_flag = sign_r == sign_y;//同号做减法
+    assign sign_r = div_r[64];//最初，余数的符号位与被除数的符号位相同
+    assign y_in = sign_r == sign_y ? ~Y + 1 : Y; //同号相减，异号相加
 
     Adder32 my_adder(.f(diff_res),
-                    .cout(cout),
+                    .cout(),
                     .x(div_r[63:32]),
-                    .y(Y),
-                    .sub(sub_flag));
+                    .y(y_in),
+                    .sub(1'b0));
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) div_r <= 0;
+    always @(posedge clk) begin
+        if (rst) begin
+            div_r <= 0;
+            quote_r <= 0;
+        end
         else if (in_valid) begin
-            div_r <= {sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, 
-                     sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x,
-                     sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, 
-                     sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, sign_x, 
-                     X};//扩展符号位
-            Q_r <= 0;
-            
+            div_r <= {{33{sign_x}}, X};//符号扩展
+            quote_r <= 0;
         end
-        else if ((cnt_r == 32)&&(!out_valid_r)) begin//判断Qn
-            div_r[63:32] <= diff_res[31:0];
-            Q_r[32] <= sign_y == div_r[63];
+        else if (!out_valid_rem) begin
+            div_r <= {diff_res[31:0], div_r[31:0], sign_r == sign_y ? 1'b1 : 1'b0};
         end
-        else if ((cnt_r >= 0)&&(!out_valid_r)) begin//Q31-Q0
-            if (sign_r == sign_y) begin
-                div_r[63:32] <= div_r[63:32] + diff_res[31:0];
-                Q_r[cnt_r] <= 1'b1;
-            end
-            else begin
-                div_r[63:32] <= div_r[63:32] + diff_res[31:0];
-                Q_r[cnt_r] <= 1'b0;
-            end
-            //若没有进位，说明不够减，那么不减，直接移位
-            if (cnt_r != 0)
-                div_r <= div_r<<1;
+        else if (!out_valid_quo) begin
+            quote_r <= {div_r[30:0], sign_r == sign_y ? 1'b1 : 1'b0};
         end
-    end*/
-    //assign overflow = Q_r[32] ^ !sub_flag;
+    end
+    
     assign in_error = ((X == 0) || (Y == 0));
-    assign out_valid = in_error || out_valid_r;
-    /*assign Q = (sign_x==sign_y) ? Q_r[31:0] : Q_r[31:0]+1;
-    assign R = (sign_x==sign_r) ? div_r[63:32]  : 
-               (sign_x==sign_y) ? div_r[63:32]+Y:
-                                  div_r[63:32]-Y;*/
-    wire signed [31:0] Q_s, R_s;
-    assign Q_s = X/Y;
-    assign R_s = X%Y;
-    assign Q = Q_s;
-    assign R = R_s;
+    assign out_valid = in_error || (out_valid_rem&&out_valid_quo);
+    assign Q = (sign_x == sign_y) ? quote_r : quote_r + 1'b1;
+    assign R = (sign_r == sign_x) ? div_r[64:33] :
+               (sign_x == sign_y) ? div_r[64:33] + Y : div_r[64:33] - Y;
 
 
 endmodule

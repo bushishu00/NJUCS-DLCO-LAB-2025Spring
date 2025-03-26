@@ -43,7 +43,7 @@ module rv32m_top(
                    .out_valid(out_valid), 
                    .in_error(in_error), 
                    .clk(clk), 
-                   .rst(rst), 
+                   .rst(!rst), 
                    .rs1(dest), 
                    .rs2(rsc), 
                    .funct3(funct3), 
@@ -66,14 +66,16 @@ module rv32m_top(
         end
     end
 
-    hex2seg seg_u1(.hex(result[3:0]), .seg(seg_data[7]));
-    hex2seg seg_u2(.hex(result[7:4]), .seg(seg_data[6]));
-    hex2seg seg_u3(.hex(result[11:8]), .seg(seg_data[5]));
-    hex2seg seg_u4(.hex(result[15:12]), .seg(seg_data[4]));
-    hex2seg seg_u5(.hex(result[19:16]), .seg(seg_data[3]));
-    hex2seg seg_u6(.hex(result[23:20]), .seg(seg_data[2]));
-    hex2seg seg_u7(.hex(result[27:24]), .seg(seg_data[1]));
-    hex2seg seg_u8(.hex(result[31:28]), .seg(seg_data[0]));
+    hex2seg seg_u1(.hex(result[3:0]), .seg(seg_data[0]));
+    hex2seg seg_u2(.hex(result[7:4]), .seg(seg_data[1]));
+    hex2seg seg_u3(.hex(result[11:8]), .seg(seg_data[2]));
+    hex2seg seg_u4(.hex(result[15:12]), .seg(seg_data[3]));
+    hex2seg seg_u5(.hex(result[19:16]), .seg(seg_data[4]));
+    hex2seg seg_u6(.hex(result[23:20]), .seg(seg_data[5]));
+    hex2seg seg_u7(.hex(result[27:24]), .seg(seg_data[6]));
+    hex2seg seg_u8(.hex(result[31:28]), .seg(seg_data[7]));
+
+    assign rd_l = result[15:0];
 
     assign AN = (sel == 3'b000) ? 8'b11111110 :
                 (sel == 3'b001) ? 8'b11111101 :

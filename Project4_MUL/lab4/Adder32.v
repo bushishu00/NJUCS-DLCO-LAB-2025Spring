@@ -30,8 +30,8 @@ module Adder32(
       wire [1:0] pi, gi;
       wire [2:0] c;
       assign c[0] = sub;
-      assign c[1] = gi[0] | (pi[0] & c[0]);
-      assign c[2] = gi[1] | (pi[1] & gi[0]) | (pi[1] & pi[0] & c[0]);
+      assign c[1] = gi[0] | (pi[0] & sub);
+      assign c[2] = gi[1] | (pi[1] & gi[0]) | (pi[1] & pi[0] & sub);
 
       wire [31:0] y_in;
       assign y_in = sub ? ~y : y;
