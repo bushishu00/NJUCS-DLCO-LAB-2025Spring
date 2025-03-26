@@ -49,7 +49,7 @@ module rv32m_tb(   );
 	#2 Clk = ~Clk;	     //Ä£ÄâÊ±ÖÓÐÅºÅ
   end
 
-   rv32m my_rv32m(.rd(Rd),.out_valid(Out_valid),.in_error(In_error),.clk(Clk),.rs1(Rs1),.rs2(Rs2),.funct3(Funct3),.in_error(In_valid));
+   rv32m my_rv32m(.rd(Rd),.rst(Rst), .out_valid(Out_valid),.in_error(In_error),.clk(Clk),.rs1(Rs1),.rs2(Rs2),.funct3(Funct3),.in_valid(In_valid));
 
   task checkrv32m;
     begin

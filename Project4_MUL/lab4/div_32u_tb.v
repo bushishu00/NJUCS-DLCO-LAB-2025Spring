@@ -21,8 +21,8 @@
 
 
 module div_32u_tb( );
-  parameter N = 32;               // ¶¨ÒåÎ»¿í
-  parameter SEED = 1;              // ¶¨Òå²»Í¬µÄËæ»úĞòÁĞ
+  parameter N = 32;               // å®šä¹‰ä½å®½
+  parameter SEED = 1;              // å®šä¹‰ä¸åŒçš„éšæœºåºåˆ—
      reg clk, rst;
      reg [N-1:0] x, y;
      reg in_valid;
@@ -50,22 +50,22 @@ module div_32u_tb( );
   initial begin : TB   // Start testing at time 0
      clk = 0;
 	 forever 
-	#2 clk = ~clk;	     //Ä£ÄâÊ±ÖÓĞÅºÅ
+	#2 clk = ~clk;	     //æ¨¡æ‹Ÿæ—¶é’Ÿä¿¡å·
   end
 
   initial 
    begin	
     errors = 0;
            x = $random(SEED);                        // Set pattern based on seed parameter
-   for (i=0; i<10000; i=i+1) begin                //¼ÆËã10000´Î
+   for (i=0; i<10000; i=i+1) begin                //è®¡ç®—10000æ¬¡
         rst = 1'b0;
         #2
-        rst = 1'b1;                             //ÉÏµçºó1us¸´Î»ĞÅºÅ
+        rst = 1'b1;                             //ä¸Šç”µå1uså¤ä½ä¿¡å·
         x=$random; y=$random;
 //	    x=0; y=1;
      	#2
     	rst = 1'b0;	
-	    in_valid=1'b1;                        //³õÊ¼»¯Êı¾İ
+	    in_valid=1'b1;                        //åˆå§‹åŒ–æ•°æ®
 	    #5
 	    in_valid=1'b0;
 	    #150;	                          // wait 150 ns, then check result

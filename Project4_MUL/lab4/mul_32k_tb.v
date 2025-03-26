@@ -26,7 +26,7 @@ module mul_32k_tb(    );
   reg [N-1:0] X, Y;
   wire [2*N-1:0] P;
 
-  mul_32k UUT ( .X(X), .Y(Y), .P(P) ); // Instantiate the UUT
+  mul_32k UUT ( .a(X), .b(Y), .product(P) ); // Instantiate the UUT
 
   task checkP;
     reg [2*N-1:0] temp_P;
@@ -34,7 +34,7 @@ module mul_32k_tb(    );
       temp_P = X*Y;
       if (P !== temp_P) begin
         $display($time," Error: X=%d, Y=%d, expected %d (%16H), got %d (%16H)",
-                 X, Y, temp_P, temp_P, P, P); $stop(1); end
+                 X, Y, temp_P, temp_P, P, P);  end
     end
   endtask
     integer i;
